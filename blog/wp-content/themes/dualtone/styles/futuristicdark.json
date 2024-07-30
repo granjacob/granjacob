@@ -1,0 +1,119 @@
+{
+	"title": "Futuristic Dark",
+	"version": 2,
+	"$schema": "https://schemas.wp.org/wp/6.5/theme.json",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#111",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#FFF",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#00BBCC",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#92B7C4",
+					"name": "Accent / Two",
+					"slug": "accent-2"
+				},
+				{
+				    "color": "#00BBCC",
+				    "name": "Link",
+				    "slug": "linkcol"
+				},
+				{
+				    "color": "#92B7C4",
+				    "name": "Link / Two",
+				    "slug": "linkcol-2"
+				}
+			]
+		},
+		"custom": {
+			"color": {
+				"link": "var(--wp--preset--color--accent)",
+                "linkVisited": "var(--wp--preset--color--accent-2)",
+                "background": "var(--wp--preset--color--base)",
+                "text": "var(--wp--preset--color--accent-2)",
+                "buttonDefault": "var(--wp--preset--color--contrast)",
+                "buttonDefaultText": "var(--wp--preset--color--base)",
+                "buttonAccent": "var(--wp--preset--color--accent)",
+                "buttonAccentText": "var(--wp--preset--color--base)",
+                "siteTitle": "var(--wp--preset--color--contrast)",
+                "separator": "var(--wp--preset--color--accent)",
+                "excerptLink": "var(--wp--preset--color--accent)",
+                "forms": "var(--wp--preset--color--base)",
+                "formsText": "var(--wp--preset--color--contrast)",
+                "formsBorder": "var(--wp--preset--color--contrast)",
+                "selection": "#00DD00",
+                "selectionText": "#000",
+                "responsiveMenuOverlay": "var(--wp--preset--color--base)",
+				"responsiveMenuOverlayText": "var(--wp--preset--color--accent-2)"
+			},
+			"fontWeight": {
+				"default": "150",
+				"semiBold": "350"
+			}
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/button": {
+				"css": "border-radius: 0px; background-color: var(--wp--preset--color--contrast);"
+			},
+			"core/buttons": {
+				"css": " & .is-style-dark .wp-block-button__link { background-color: var(--wp--preset--color--base); color: var(--wp--preset--color--contrast); }",
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--base)"
+						}
+					}
+				}
+			},
+			"core/cover": {
+				"css": " & .has-base-color { font-weight: var(--wp--custom--font-weight--semi-bold); }"
+			},
+			"core/file": {
+				"typography": {
+					"fontWeight": "var(--wp--custom--font-weight--semi-bold)"
+				}
+			},
+			"core/group": {
+				"css": " & .is-style-vborder { gap: 0; border-top: 1px solid var(--wp--preset--color--accent); border-bottom: 1px solid var(--wp--preset--color--accent); padding: 0 0 var(--wp--preset--spacing--10); } & .has-accent-background-color { font-weight: var(--wp--custom--font-weight--semi-bold); }"
+			},
+			"core/query-pagination": {
+				"typography": {
+					"fontWeight": "var(--wp--custom--font-weight--semi-bold);"
+				}
+			},
+			"core/post-terms": {
+				"typography": {
+					"fontWeight": "var(--wp--custom--font-weight--semi-bold);"
+				}
+			},
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "Zen Dots"
+				},
+				"css": " & a { color: var(--wp--preset--color--contrast); }"
+			},
+			"core/post-title": {
+				"typography": {
+					"fontFamily": "Zen Dots"
+				}
+			}
+		},
+		"color": {
+			"text": "var(--wp--preset--color--accent-2)"
+		}
+	}
+}

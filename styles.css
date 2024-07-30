@@ -1,0 +1,39 @@
+.container.text-start {
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 0;
+}
+
+.container.text-start h1,
+.container.text-start p {
+    margin-bottom: 15px; /* Adjust spacing as needed */
+}
+
+.container.text-start .btn {
+    margin-top: 10px; /* Space between the paragraph and the button */
+}
+
+.nothomepage {
+    padding: 18px 0 !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}

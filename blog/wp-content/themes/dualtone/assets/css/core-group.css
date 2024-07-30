@@ -1,0 +1,38 @@
+/* DualTone group block customizations
+------------------------------------------- */
+.wp-block-group.is-style-baseline { 
+    align-items: baseline !important;
+}
+.wp-block-group.is-style-palette { 
+    width: 160px; height: 160px; padding-top: 2rem;
+}
+.wp-block-group.is-style-vborder {
+    gap: 0; 
+    border-top: 1px solid var(--wp--preset--color--accent); 
+    border-bottom: 1px solid var(--wp--preset--color--accent); 
+    padding: 0 0 var(--wp--preset--spacing--10);
+}
+
+.wp-block-group.is-style-width4 {
+    padding: 0;
+}
+
+@media screen and (width > 782px) {
+    .wp-block-group.is-style-width4,
+    .wp-block-group.is-style-width3 {
+        padding-left: var(--wp--custom--fluid--48-128);
+        padding-right: var(--wp--custom--fluid--48-128);
+    }
+    .wp-block-group.is-style-width4 > .wp-block-group {
+        max-width: 19.75rem;
+    }
+    .wp-block-group.is-style-width3 > .wp-block-group {
+        max-width: 26rem;
+    }
+}
+
+.wp-block-group.is-style-aborder {
+    border: 1px solid var(--wp--preset--color--accent);
+    border-radius: 4px;
+    padding: var(--wp--preset--spacing--025) var(--wp--preset--spacing--050);
+}

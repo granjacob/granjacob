@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Custom rewrite rule for /gj/gran-jacob/page-uri
+RewriteRule ^gj/gran-jacob/([^/]+)/?$ /index.php?uri=$1 [L,QSA]
+</IfModule>

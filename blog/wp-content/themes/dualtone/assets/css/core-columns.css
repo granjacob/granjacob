@@ -1,0 +1,26 @@
+/* DualTone sidebar content column layout style
+----------------------------------------------- */
+.is-style-sidebar-content.is-layout-flex .is-style-sidebar-left {
+    flex-basis: var(--wp--custom--width--sidebar-flex-basis);
+}
+
+.is-style-sidebar-content.is-layout-flex .is-style-content-right {
+    flex-basis: var(--wp--custom--width--content-flex-basis);
+}
+
+@media (min-width: 782px) {
+    .is-style-sidebar-content.is-layout-flex .is-style-sidebar-left,
+    .is-style-sidebar-content.is-layout-flex .is-style-content-right {
+        padding-right: var(--wp--custom--fluid--16-67);
+        padding-left: var(--wp--custom--fluid--16-67);
+    }
+    .is-style-sidebar-content .is-style-sidebar-left {
+        border-right: var(--wp--custom--border--thin) solid;
+    }
+}
+
+@media screen and (width < 782px) {
+    .is-style-sidebar-content .is-style-content-right {
+        margin-block-start: var(--wp--preset--spacing--30);
+    }
+}

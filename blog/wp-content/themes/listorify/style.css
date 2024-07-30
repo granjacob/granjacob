@@ -1,0 +1,101 @@
+/*
+Theme Name: Listorify
+Author: CozyThemes
+Author URI: https://cozythemes.com/
+Description: Listorify serves as the child theme of FotaWP, inheriting all the features of FotaWP. It has been specifically designed for the blog niche and offers block-based full site editing capabilities. Its minimal and clean design allows users to create various types of blogs, such as personal writing, technical review blogger, gadget blogging, travel blogs, vlogs, and any other kind of blog site. Explore more features and demo at https://cozythemes.com/fotawp/
+Template: fotawp
+Version: 1.0.4
+Requires at least: 5.9
+Tested up to: 6.6
+Requires PHP: 7.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: listorify
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, e-commerce, full-site-editing, block-patterns, full-width-template, rtl-language-support, threaded-comments, translation-ready, block-styles, wide-blocks
+*/
+
+nav.wp-block-navigation ul li a:hover,
+.wp-block-button.is-style-outline a:hover {
+  color: var(--wp--preset--color--secondary) !important;
+}
+.entry-content.wp-block-post-content a,
+.wp-block-comment-content a,
+p a {
+  text-decoration: underline;
+}
+.wp-block-cover.targetify-portfolio-box {
+  background: #000;
+}
+
+.is-style-readmore-hover-primary-fill.wp-block-read-more {
+  border-radius: 0;
+}
+nav.fotawp-navigation.wp-block-navigation button.wp-block-navigation__responsive-container-open.always-shown {
+  background: var(--wp--preset--color--primary);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.listorify-search.wp-block-search input.wp-block-search__input {
+  padding: 0 20px;
+}
+ul.wp-block-categories-list.listorify-categories-list {
+  text-align: center;
+}
+ul.wp-block-categories-list.listorify-categories-list li {
+  display: inline-block;
+  margin: 0 0 5px;
+}
+ul.wp-block-categories-list.listorify-categories-list li a {
+  background: #0a49eb14;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+}
+ul.wp-block-categories-list.listorify-categories-list li a:hover {
+  background: var(--wp--preset--color--primary);
+  color: #fff;
+}
+form.comment-form input[type="email"],
+form.comment-form input[type="text"],
+form.comment-form input[type="url"],
+form.comment-form textarea {
+  border-radius: 0;
+  border: 1px solid;
+  margin: 12px 0 25px;
+}
+figure.listorify-featured-img.wp-block-post-featured-image img {
+  box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.15);
+}
+.listorify-post-box:hover figure.listorify-featured-img.wp-block-post-featured-image img {
+  box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.35);
+  transform: translateY(-10px);
+}
+form.listorify-header-search.wp-block-search button.wp-block-search__button {
+  width: 44px;
+}
+.wp-block-social-links.listorify-header-social .wp-social-link {
+  transition: all ease 0.23s;
+}
+.wp-block-social-links.listorify-header-social .wp-social-link svg {
+  width: 24px;
+  height: 24px;
+}
+.wp-block-social-links.listorify-header-social .wp-social-link:hover {
+  transform: translateY(-5px);
+}
+.wp-block-social-links.listorify-header-social .wp-social-link:hover svg path,
+form.listorify-header-search.wp-block-search button.wp-block-search__button:hover svg {
+  fill: var(--wp--preset--color--primary);
+}
+.wp-block-group.listorify-post-box .wp-block-cover.listorify-post-cover {
+  transition: all ease 0.23s;
+}
+.wp-block-group.listorify-post-box:hover .wp-block-cover.listorify-post-cover {
+  transform: translateY(-10px);
+}
