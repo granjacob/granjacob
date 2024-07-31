@@ -13,7 +13,9 @@ $categories = get_categories([
     'order' => 'ASC',
 ]);
 
-$parent_page = get_page_by_path('gran-jacob');
+$page_path = 'gran-jacob';
+
+$parent_page = get_page_by_path($page_path);
 
 if ($parent_page) {
     $parent_page_id = $parent_page->ID;
@@ -38,13 +40,11 @@ $child_pages_query = new WP_Query([
   <title>GRAN JACOB S.A.S - Welcome to the seed!</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?uniqid=<?php print uniqid(); ?>">
 
     <style>
 
-        body {
-            font-family:Open Sans,Helvetica,Arial,sans-serif !important;
-        }
+
     .hero {
       background-color: #e6e6e6;
       padding: 100px 0;
@@ -60,13 +60,12 @@ $child_pages_query = new WP_Query([
     }
 
     .navbar-logo {
-      height: 40px;
+      height: 33px;
       /* Add additional styles if needed */
     }
   </style>
 </head>
 <body>
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -80,10 +79,14 @@ $child_pages_query = new WP_Query([
 
         <ul class="navbar-nav ml-auto">
             <?php while ($child_pages_query->have_posts()) : $child_pages_query->the_post(); ?>
-                <li class="nav-item">
+                <li class="nav-item nav-link <?php if (get_page_uri() == $page_path . '/' . $uri) echo 'active'; ?>">
                     <a class="nav-link" href="/gj/<?php print get_page_uri(); ?>"><?php the_title(); ?></a>
                 </li>
             <?php endwhile; ?>
+
+            <li class="nav-item nav-link" >
+                <a class="nav-link" href="/members" style="background-color:red; color:white;">Members</a>
+            </li>
         </ul>
 
     </div>
@@ -123,7 +126,7 @@ $child_pages_query = new WP_Query([
 ?>
 
         <div class="container">
-            <h1>Welcome to HSBC</h1>
+            <h1>Welcome to GRAN JACOB</h1>
             <p>Your financial partner for life</p>
             <a href="#" class="btn btn-primary">Learn More</a>
         </div>
@@ -140,40 +143,51 @@ $child_pages_query = new WP_Query([
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">NEPTUNEQL</h5>
             <p class="card-text">Manage your personal accounts with ease.</p>
-            <a href="#" class="btn btn-primary">Explore</a>
+            <a href="/projects/neptuneql" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">ANGLOBLOG</h5>
             <p class="card-text">Solutions to help your business grow.</p>
-            <a href="#" class="btn btn-primary">Explore</a>
+            <a href="/projects/angloblog" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">FINANCIAL SERVICES</h5>
             <p class="card-text">Plan your financial future with us.</p>
-            <a href="#" class="btn btn-primary">Explore</a>
+            <a href="/projects/financial" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>
-    </div>
+
+
   </div>
 </section>
+<section class="language" style="background-color:#666;">
+    <div class="container text-center" >
+        <p>Select your preferred language</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#" class="text-white">Spanish</a></li>
+            <li class="list-inline-item"><a href="#" class="text-white">English</a></li>
 
+        </ul>
+    </div>
+</section>
 <!-- Footer -->
 <footer class="footer">
+
   <div class="container text-center">
     <p>&copy; 2024 GRAN JACOB S.A.S. All rights reserved.</p>
     <ul class="list-inline">

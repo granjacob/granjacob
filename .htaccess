@@ -3,4 +3,11 @@ RewriteEngine On
 
 # Custom rewrite rule for /gj/gran-jacob/page-uri
 RewriteRule ^gj/gran-jacob/([^/]+)/?$ /index.php?uri=$1 [L,QSA]
+
+RewriteRule ^projects/neptuneql/([^/]+)/?$ /index.php?uri=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
 </IfModule>
