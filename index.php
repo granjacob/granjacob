@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 // Load WordPress
 define('WP_USE_THEMES', false);
 require_once 'blog/wp-load.php';
@@ -14,6 +17,8 @@ $categories = get_categories([
 ]);
 
 $page_path = 'gran-jacob';
+
+$welcome_url = 'gj/' . $page_path . '/home';
 
 $parent_page = get_page_by_path($page_path);
 
@@ -128,7 +133,7 @@ $child_pages_query = new WP_Query([
         <div class="container">
             <h1>Welcome to GRAN JACOB</h1>
             <p>Your financial partner for life</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="<?php print $welcome_url; ?>" class="btn btn-primary">Learn More</a>
         </div>
     <?php
     }
@@ -178,11 +183,13 @@ $child_pages_query = new WP_Query([
 <section class="language" style="background-color:#666;">
     <div class="container text-center" >
         <p>Select your preferred language</p>
+        <form action="setlanguage.php" method="post" >
+            <input type="hidden" value="en" name="lang" id="lang"/>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="#" class="text-white">Spanish</a></li>
-            <li class="list-inline-item"><a href="#" class="text-white">English</a></li>
-
+            <li class="list-inline-item"><a href="#" data-lang="es" class="setlanguage text-white">Spanish</a></li>
+            <li class="list-inline-item"><a href="#" data-lang="en" class="setlanguage text-white">English</a></li>
         </ul>
+        </form>
     </div>
 </section>
 <!-- Footer -->
@@ -202,5 +209,6 @@ $child_pages_query = new WP_Query([
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
