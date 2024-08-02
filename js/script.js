@@ -8,4 +8,28 @@ $(document).ready( function () {
       form.submit();
       return false;
    });
+
+   $('.nav-item.dropdown').hover(
+       function () {
+          $(this).addClass('show');
+          $(this).find('.dropdown-menu').addClass('show');
+       },
+       function () {
+          $(this).removeClass('show');
+          $(this).find('.dropdown-menu').removeClass('show');
+       }
+   );
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.createElement("div");
+    menuToggle.className = "menu-toggle";
+    menuToggle.innerHTML = "☰ Menu";
+    document.body.appendChild(menuToggle);
+
+    var leftMenu = document.querySelector(".left-menu");
+    menuToggle.addEventListener("click", function() {
+        leftMenu.classList.toggle("open");
+    });
 });

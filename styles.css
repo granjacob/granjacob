@@ -50,6 +50,7 @@ body {
 
 body {
     font-family: "Encode Sans Expanded Medium" !important;
+
 }
 
 
@@ -61,3 +62,155 @@ section.hero strong {
     font-weight:bold;
 }
 
+
+
+
+.mega-menu {
+    width: 80vw;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the menu */
+    top: 100%;
+    left: 50%; /* Start from the center */
+    transform: translateX(-50%); /* Center horizontally */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.mega-menu .row {
+    margin: 0;
+}
+
+.navbar-nav .nav-item:hover .mega-menu {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    margin-left:0;
+    transform: translateX(-50%); /* Ensure centered positioning on hover */
+}
+
+.feature-box {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box h6 {
+    margin-top: 0;
+}
+
+.feature-box p {
+    margin-bottom: 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #e2e2e2;
+}
+
+.navbar-dark .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: #e2e2e2;
+}
+
+
+
+.left-menu {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    height: 100%;
+    transition: transform 0.3s ease;
+    text-align: left;
+
+
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.left-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.left-menu ul ul {
+    margin-left: 20px;
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    padding: 5px 0;
+}
+
+.left-menu a:hover {
+    text-decoration: underline;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .left-menu {
+        transform: translateX(-100%);
+    }
+
+    .left-menu.open {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+    }
+}
+
+
+p {
+    font-size: 16px; /* Adjust font size */
+    line-height: 1.6; /* Set line height for readability */
+    margin-top: 1em;
+    margin-bottom: 1em; /* Set bottom margin for spacing between paragraphs */
+}
+
+/* Custom styles for specific sections */
+.hero-section p {
+    font-size: 18px; /* Larger font size for hero section */
+    line-height: 1.8; /* Increase line height for larger text */
+}
+
+/* Ensure consistent styling across different screen sizes */
+@media (max-width: 768px) {
+    p {
+        font-size: 15px; /* Adjust font size for smaller screens */
+        line-height: 1.5; /* Adjust line height for smaller screens */
+    }
+}

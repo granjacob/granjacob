@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="216.94128mm"
-   height="36.229057mm"
-   viewBox="0 0 216.94129 36.229057"
+   width="27.282mm"
+   height="27.282mm"
+   viewBox="0 0 27.282 27.282"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
-   sodipodi:docname="neptuneql.svg"
+   sodipodi:docname="neptuneql-logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0405163"
-     inkscape:cx="199.42024"
-     inkscape:cy="148.00345"
+     inkscape:cx="25.468126"
+     inkscape:cy="273.90249"
      inkscape:window-width="2494"
      inkscape:window-height="1371"
      inkscape:window-x="0"
@@ -38,37 +38,26 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-52.073208,-109.36449)">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.87px;font-family:'Muller Next Expanded Trial';-inkscape-font-specification:'Muller Next Expanded Trial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#0055d4;stroke-width:0.56969"
-       x="88.926765"
-       y="133.04025"
-       id="text3"><tspan
-         sodipodi:role="line"
-         id="tspan3"
-         style="fill:#0055d4;stroke-width:0.56969"
-         x="88.926765"
-         y="133.04025">NEPTUNEQL</tspan></text>
+     transform="translate(-98.207942,-75.968509)">
     <circle
-       style="fill:#0055d4;stroke-width:0.439292"
+       style="fill:#4a90e2;fill-opacity:1;stroke-width:0.439292"
        id="path3"
-       cx="68.997139"
-       cy="127.73463"
+       cx="111.90716"
+       cy="89.667725"
        r="12.640882" />
     <path
        style="fill:#d5e5ff;stroke-width:0.439292"
-       d="m 59.073509,127.30889 c 6.607207,0.82967 13.221419,0.9799 19.847254,0 0,0 -8.885994,3.64419 -19.847254,0 z"
+       d="m 101.98354,89.241986 c 6.6072,0.829666 13.22141,0.9799 19.84725,0 0,0 -8.88599,3.644183 -19.84725,0 z"
        id="path4"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:#d5e5ff;stroke-width:0.366823"
-       d="m 60.710617,130.89311 c 5.517207,0.6928 11.040258,0.81825 16.573038,0 0,0 -7.420048,3.04301 -16.573038,0 z"
+       d="m 103.62064,92.826206 c 5.51721,0.692797 11.04026,0.818247 16.57304,0 0,0 -7.42005,3.043001 -16.57304,0 z"
        id="path4-3"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:#d5e5ff;stroke-width:0.290201"
-       d="m 62.4415,133.88115 c 4.364779,0.54808 8.734191,0.64733 13.111272,0 0,0 -5.870156,2.40738 -13.111272,0 z"
+       d="m 105.35153,95.814238 c 4.36478,0.548086 8.73419,0.647331 13.11127,0 0,0 -5.87016,2.407382 -13.11127,0 z"
        id="path4-3-5"
        sodipodi:nodetypes="ccc" />
   </g>

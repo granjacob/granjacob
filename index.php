@@ -2,11 +2,28 @@
 
 session_start();
 
+
+
+
 // Load WordPress
 define('WP_USE_THEMES', false);
 require_once 'blog/wp-load.php';
 
+
+
+
 $uri = isset($_GET['uri']) ? sanitize_text_field($_GET['uri']) : '';
+
+function includePage( $requestUri )
+{
+    if (file_exists("pages/{$requestUri}.php"))
+        include("pages/{$requestUri}.php");
+}
+function pageExists()
+{
+    return file_exists( "pages/" . trim( $_SERVER['REQUEST_URI'], '/' ) . ".php" );
+}
+
 
 $pages = get_pages();
 
@@ -16,25 +33,62 @@ $categories = get_categories([
     'order' => 'ASC',
 ]);
 
-$page_path = 'gran-jacob';
 
-$welcome_url = 'gj/' . $page_path . '/home';
+$pathBaseContent = str_replace( ".", "-", $_SERVER['HTTP_HOST'] );
 
-$parent_page = get_page_by_path($page_path);
+$welcome_url =  $pathBaseContent . '/home';
+
+$parent_page = get_page_by_path($pathBaseContent . "/main" );
+
+$child_pages_query = null;
+
 
 if ($parent_page) {
     $parent_page_id = $parent_page->ID;
+
+
+
+    // Query for child pages
+    $child_pages_query = new WP_Query([
+        'post_type' => 'page',
+        'post_parent' => $parent_page_id,  // Set parent page ID
+        'orderby' => 'menu_order',  // Order by title
+        'order' => 'ASC',  // Order ascending
+        'posts_per_page' => -1  // Retrieve all child pages
+    ]);
+
+}
+else {
+	$child_pages_query = new WP_Query([]);
 }
 
 
-// Query for child pages
-$child_pages_query = new WP_Query([
-    'post_type' => 'page',
-    'post_parent' => $parent_page_id,  // Set parent page ID
-    'orderby' => 'menu_order',  // Order by title
-    'order' => 'ASC',  // Order ascending
-    'posts_per_page' => -1  // Retrieve all child pages
-]);
+if ($_SERVER['REQUEST_URI'] === '/')
+    $_SERVER['REQUEST_URI'] = $pathBaseContent . '/start-page';
+
+if (pageExists())
+    $finalPage = $_SERVER['REQUEST_URI'];
+else
+if (!empty( $uri ))
+    $finalPage = "wpcontent";
+else
+    $finalPage = "404";
+
+$currentUrlHomeHost = 'http://' . $_SERVER['HTTP_HOST'];
+
+function getPage( $path )
+{
+    global $pathBaseContent;
+
+    return '/' . $pathBaseContent . '/' . $path;
+}
+
+function getPageCurrent( $page )
+{
+    global $pathBaseContent;
+
+    return $_SERVER['REQUEST_URI'] . '/' . $page;
+}
 
 ?>
 <!DOCTYPE html>
@@ -70,116 +124,34 @@ $child_pages_query = new WP_Query([
     }
   </style>
 </head>
-<body>
+<body class="<?php print $pathBaseContent; ?>">
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="http://granjacob.com">
-      <img src="/images/granjacob-logo-blue.svg" alt="GRAN JACOB Logo" class="navbar-logo">
+    <a class="navbar-brand" href="<?php print $currentUrlHomeHost; ?>">
+      <img src="/images/<?php print $pathBaseContent; ?>-logo.svg" alt="GRAN JACOB Logo" class="navbar-logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
+
     <div class="collapse navbar-collapse" id="navbarNav">
+	    <?php includePage( $pathBaseContent . '/mainmenu' ); ?>
 
-        <ul class="navbar-nav ml-auto">
-            <?php while ($child_pages_query->have_posts()) : $child_pages_query->the_post(); ?>
-                <li class="nav-item nav-link <?php if (get_page_uri() == $page_path . '/' . $uri) echo 'active'; ?>">
-                    <a class="nav-link" href="/gj/<?php print get_page_uri(); ?>"><?php the_title(); ?></a>
-                </li>
-            <?php endwhile; ?>
 
-            <li class="nav-item nav-link" >
-                <a class="nav-link" href="/members" style="background-color:red; color:white;">Members</a>
-            </li>
-        </ul>
 
     </div>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero <?php if (!empty($uri)) print "nothomepage"; ?>">
-    <?php
-    if (!empty($uri)) {
-        // Query for the page by its slug
-        $page = get_page_by_path('gran-jacob/' . $uri);
-
-
-        if ($page) {
-
-            global $wp_query;
-            $wp_query->set('page_id', $page->ID);
-            $wp_query->is_page = true;
-            $wp_query->is_singular = true;
-
-            ?>
-            <div class="container text-start">
-                <?php
-                echo '<h1>' . esc_html(get_the_title($page)) . '</h1>';
-                echo apply_filters('the_content', $page->post_content);
-                ?>
-            </div>
-
-
-            <?php
-
-        } else {
-           include( "404.php" );
-        }
-    } else {
-?>
-
-        <div class="container">
-            <h1>Welcome to GRAN JACOB</h1>
-            <p>Your financial partner for life</p>
-            <a href="<?php print $welcome_url; ?>" class="btn btn-primary">Learn More</a>
-        </div>
-    <?php
-    }
-    ?>
-
-
+<section class="hero <?php if (!pageExists() or !empty($uri)) print "nothomepage"; ?>">
+    <?php includePage( $finalPage ); ?>
 </section>
-
 <!-- Feature Section -->
-<section class="feature">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">NEPTUNEQL</h5>
-            <p class="card-text">Manage your personal accounts with ease.</p>
-            <a href="/projects/neptuneql" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">ANGLOBLOG</h5>
-            <p class="card-text">Solutions to help your business grow.</p>
-            <a href="/projects/angloblog" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/pinion.svg" height="300" width="300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">FINANCIAL SERVICES</h5>
-            <p class="card-text">Plan your financial future with us.</p>
-            <a href="/projects/financial" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
+<?php includePage( $pathBaseContent . '/features' ); ?>
 
-
-  </div>
-</section>
 <section class="language" style="background-color:#666;">
     <div class="container text-center" >
         <p>Select your preferred language</p>
@@ -196,11 +168,13 @@ $child_pages_query = new WP_Query([
 <footer class="footer">
 
   <div class="container text-center">
-    <p>&copy; 2024 GRAN JACOB S.A.S. All rights reserved.</p>
+    <p>&copy; 2024 GRAN JACOB S.A.S. All rights reserved.<br/>
+    <a href="http://granjacob.com/">www.granjacob.com</a>
+    </p>
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
-      <li class="list-inline-item"><a href="#" class="text-white">Terms of Use</a></li>
-      <li class="list-inline-item"><a href="#" class="text-white">Contact</a></li>
+      <li class="list-inline-item"><a href="<?php print getPage( 'info/privacy-policy' ); ?>" class="text-white">Privacy Policy</a></li>
+      <li class="list-inline-item"><a href="<?php print getPage( 'info/terms-of-use' ); ?>" class="text-white">Terms of Use</a></li>
+      <li class="list-inline-item"><a href="<?php print getPage( 'main/contact' ); ?>" class="text-white">Contact</a></li>
     </ul>
   </div>
 </footer>
@@ -209,6 +183,8 @@ $child_pages_query = new WP_Query([
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
 <script src="/js/script.js"></script>
 </body>
 </html>
