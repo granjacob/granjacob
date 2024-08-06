@@ -1292,8 +1292,8 @@
       <change beforePath="/media/coastredwood/GRAN JACOB/Projects/appsgenerator/yii/advanced/vagrant/provision/once-as-vagrant.sh" beforeDir="false" />
       <change beforePath="/media/coastredwood/GRAN JACOB/Projects/appsgenerator/yii/advanced/vagrant/provision/provision.awk" beforeDir="false" />
       <change beforePath="/media/coastredwood/GRAN JACOB/Projects/appsgenerator/yii/advanced/yii.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1384,7 +1384,7 @@
       <workItem from="1722826396367" duration="4654000" />
       <workItem from="1722859351943" duration="602000" />
       <workItem from="1722919309800" duration="7794000" />
-      <workItem from="1722969329238" duration="4011000" />
+      <workItem from="1722969329238" duration="5352000" />
     </task>
     <servers />
   </component>

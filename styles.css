@@ -187,7 +187,7 @@ section.hero strong {
         text-align: center;
         cursor: pointer;
         position: fixed;
-        top: 10px;
+        bottom: 10px;
         left: 10px;
         z-index: 1000;
     }
