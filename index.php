@@ -22,6 +22,7 @@ function includePage( $requestUri )
 
 $pathBaseContent = str_replace( ".", "-", $_SERVER['HTTP_HOST'] );
 
+$mainAction = "/actions/" . trim( $_SERVER['REQUEST_URI'], '/' ) . ".php";
 
 // evalutes if the page exists globally
 // /pages/request/uri.php

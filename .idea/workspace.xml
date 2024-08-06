@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abbb1ca9-28ac-4d88-8252-2d601723bdf2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/angloblog-com/start-page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/granjacob-com/features.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/granjacob-com/mainmenu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/granjacob-com/start-page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/members.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/neptuneql-com/main/documentation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/neptuneql-com/mainmenu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/neptuneql-com/start-page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/wpcontent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/actions/members/signin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/granjacob-logo-blue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/granjacob-com-logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/neptuneql.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/neptuneql-com-logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/members/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/members/signin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +35,17 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2jwdJkN470eUWEWbDRfmTKv7Vct" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "PHP Script.testaipackages.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/var/www/granjacob/pages/neptuneql-com",
+    "last_opened_file_path": "/var/www/granjacob/pages/neptuneql-com/css",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,6 +58,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/neptuneql-com/css" />
       <recent name="$PROJECT_DIR$/pages/neptuneql-com" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -75,6 +66,16 @@
       <recent name="$PROJECT_DIR$/pages/granjacob-com" />
       <recent name="$PROJECT_DIR$/pages" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="testaipackages.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="/media/coastredwood/GRAN JACOB/Projects/appsgenerator/testaipackages.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.testaipackages.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -96,6 +97,10 @@
       <workItem from="1722426020325" duration="4648000" />
       <workItem from="1722526355002" duration="6492000" />
       <workItem from="1722540983225" duration="26351000" />
+      <workItem from="1722597781692" duration="358000" />
+      <workItem from="1722826396367" duration="4654000" />
+      <workItem from="1722859351943" duration="602000" />
+      <workItem from="1722919309800" duration="7794000" />
     </task>
     <servers />
   </component>
