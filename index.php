@@ -19,9 +19,23 @@ function includePage( $requestUri )
     if (file_exists("pages/{$requestUri}.php"))
         include("pages/{$requestUri}.php");
 }
+
+$pathBaseContent = str_replace( ".", "-", $_SERVER['HTTP_HOST'] );
+
+
+// evalutes if the page exists globally
+// /pages/request/uri.php
 function pageExists()
 {
     return file_exists( "pages/" . trim( $_SERVER['REQUEST_URI'], '/' ) . ".php" );
+}
+
+// evaluates if the page exists for the current website
+// example.com /pages/example-com/request/uri.php
+function localPageExists()
+{
+    global $pathBaseContent;
+	return (file_exists( "pages/{$pathBaseContent}/" . trim( $_SERVER['REQUEST_URI'], '/' ) . ".php" ));
 }
 
 
@@ -34,7 +48,6 @@ $categories = get_categories([
 ]);
 
 
-$pathBaseContent = str_replace( ".", "-", $_SERVER['HTTP_HOST'] );
 
 $welcome_url =  $pathBaseContent . '/home';
 
@@ -65,7 +78,9 @@ else {
 
 if ($_SERVER['REQUEST_URI'] === '/')
     $_SERVER['REQUEST_URI'] = $pathBaseContent . '/start-page';
-
+if (localPageExists())
+    $finalPage = $pathBaseContent . '/' . $_SERVER['REQUEST_URI'];
+else
 if (pageExists())
     $finalPage = $_SERVER['REQUEST_URI'];
 else
@@ -100,6 +115,7 @@ function getPageCurrent( $page )
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?uniqid=<?php print uniqid(); ?>">
+  <link rel="stylesheet" href="/pages/<?php print $pathBaseContent; ?>/css/styles.css?uniqid=<?php print uniqid(); ?>">
 
     <style>
 
@@ -140,13 +156,11 @@ function getPageCurrent( $page )
     <div class="collapse navbar-collapse" id="navbarNav">
 	    <?php includePage( $pathBaseContent . '/mainmenu' ); ?>
 
-
-
     </div>
   </div>
 </nav>
 
-<section class="hero <?php if (!pageExists() or !empty($uri)) print "nothomepage"; ?>">
+<section class="hero  <?php if (!pageExists() or !empty($uri)) print "nothomepage"; ?>">
     <?php includePage( $finalPage ); ?>
 </section>
 <!-- Feature Section -->
@@ -185,6 +199,7 @@ function getPageCurrent( $page )
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
 
-<script src="/js/script.js"></script>
+<script src="/js/script.js?uniqid=<?php print uniqid(); ?>"></script>
+<script src="/pages/<?php print $pathBaseContent; ?>/js/script.js?uniqid=<?php print uniqid(); ?>"></script>
 </body>
 </html>

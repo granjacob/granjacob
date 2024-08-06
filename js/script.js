@@ -1,4 +1,15 @@
+function addBackgroundClass( divClass, classBackground, urlPaths )
+{
+    for (path in urlPaths) {
+        if (document.location.href.indexOf(urlPaths[path]) >= 0) {
+            $('.' + divClass).addClass(classBackground);
+        }
+    }
+}
 $(document).ready( function () {
+
+
+
    $('.setlanguage').on("click", function(e) {
       e.preventDefault();
       var form = $(this).closest('form');
@@ -33,3 +44,4 @@ document.addEventListener("DOMContentLoaded", function() {
         leftMenu.classList.toggle("open");
     });
 });
+
