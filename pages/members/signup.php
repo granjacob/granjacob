@@ -1,6 +1,6 @@
 <div  class="login-container">
 	<h2>Sign up - New account</h2>
-	<form action="signup.php" method="post">
+	<form action="/account" method="post" novalidate>
 		<div class="form-group">
 			<label for="username">Your name</label>
 			<input type="text" id="fullname" name="fullname" required>
