@@ -3,25 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Axios Example</title>
+    <!-- Include Axios from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<div class="login-container">
-    <h2>Login</h2>
-    <form action="login.php" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">Login</button>
-        </div>
-    </form>
-</div>
+<h1>Country CRUD Operations with Axios</h1>
+<button onclick="getCountries()">Get Countries</button>
+<button onclick="createCountry()">Create Country</button>
+<button onclick="updateCountry()">Update Country</button>
+<button onclick="deleteCountry()">Delete Country</button>
+
+<div id="output"></div>
+
+<script>
+    const API_URL = 'http://granjacob.com/jacobbe';
+
+    // Function to get all countries
+    function getCountries() {
+        axios.get(API_URL)
+            .then(response => {
+                document.getElementById('output').innerHTML = JSON.stringify(response.data, null, 2);
+            })
+            .catch(error => console.error('Error getting countries:', error));
+    }
+
+
+    function createDynamic(  endpoint, data, sucessCallback, errorCallback ) {
+        axios.post(API_URL + endpoint, data )
+            .then(response => {
+                sucessCallback();
+            })
+            .catch(error => errorCallback());
+    }
+
+    // Function to create a new country
+    function createCountry() {
+        const endpoint = '/countries';
+        createDynamic(
+            endpoint,
+            { name: 'New sssdeeeeasdasd here' },
+            function() {
+                console.log('Success');
+                getCountries();
+            },
+            function () {
+                console.log('ERror');
+            }
+        );
+    }
+
+    // Function to update a country by ID
+    function updateCountry() {
+        const countryId = 1; // Replace with the ID of the country to update
+        const updatedCountry = { name: 'Updated Country' };
+        axios.put(`${API_URL}/${countryId}`, updatedCountry)
+            .then(response => {
+                console.log('Country updated:', response.data);
+                getCountries();
+            })
+            .catch(error => console.error('Error updating country:', error));
+    }
+
+    // Function to delete a country by ID
+    function deleteCountry() {
+        const countryId = 1; // Replace with the ID of the country to delete
+        axios.delete(`${API_URL}/${countryId}`)
+            .then(response => {
+                console.log('Country deleted:', response.data);
+                getCountries();
+            })
+            .catch(error => console.error('Error deleting country:', error));
+    }
+</script>
 </body>
 </html>

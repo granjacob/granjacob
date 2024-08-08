@@ -1,0 +1,221 @@
+entities.Task:java
+
+<<:ENTITY_DEFINITION:>>  : Define una entidad
+
+[] se usan para indexar un objeto (Entidad)
+
+() se usa para agrupar objetos
+
+
+Tabla[X] : Tabla es el nombre de la entidad y [X] se refiere a la columna X de la entidad
+
+Tabla.X : Se refiere a la columna X de la entidad Tabla
+
+Tabla[p, q, r] : Se refiere a los atributos p, q y r de la entidad Tabla
+
+Tabla(p, q, r) : Definicion de una nueva tabla
+
+[p, q, r] : Se refiere a los atributos p, q, r de cualquier tabla
+
+(E1.p, E2.q,  E3.r) : Se refiere a los atributos p de la entidad E1, q de la entidad E2 y r de la entidad E3
+
+Se usa para crear foreign keys en linea
+
+(E1.p, E2.q, E3.r) => (EW.w, EX.x, EY.y) es equivalente a
+
+E1.p => EW.w
+E2.q => EX.x
+E3.r => EY.y
+
+(E1[a, b], E2.r) => (T1.q, T2.r, P.t)
+
+
+(E1[a, b], E2.r) => (T1.q, T2.r, P.t)
+
+[id{TableName}] => TableName.id -----> Significa foreign key de cualquier columna con nombre id{TableName} referencia el id de la tabla en cuestion, es decir TableName
+anyEntity.id{TableName} => TableName.id
+anyEntity[id{TableName}] => TableName.campoReferenciado
+
+*TableName debe existir.
+=> Operador para crear una foreign key
+
+
+Palabras clave para generalizaciones:
+
+anyEntity
+anyAttribute
+
+
+
+
+
+-----------------------------
+Definicion de una Entidad
+-----------------------------
+
+Persona(id, nombre, direccion, telefono, fechaNacimiento)
+Empresa(id, nombre, direccion, telefono)
+Contrato(idEmpleado, idEmpresa, salario, descripcion, fecha)
+ContratosFirmados (idEmpleado, idEmpresa, fechaFirma)
+
+
+Definir una foreign key:
+
+anyEntity.id{TableName} => TableName.id
+
+
+anyEntity[colA, colB, colC] => Table[__colA, __colB, __colC];
+
+
+TablaX.idEjemplo => TablaY.id
+
+TablaX[idCuenta, idBusiness] => TablaY[idCuenta, idBusiness]
+
+[TablaX.idCuenta, TablaX.idBusiness] => (Cuenta.id, Business.id)
+
+
+TablaQ[idPersona, idEmpresa] => (Persona.id, Empresa.id)
+
+TableR.idPersona => TablaQ.id
+TableT.idText => TableN.id
+
+
+
+
+
+
+
+
+anyAttribute.startsWith("date") = dataType(date)
+
+
+anyAttribute.equals("xyz") = dataType(date)
+anyAttribute.endsWith("xyz") = dataType(date)
+anyAttribute.contains("xyz") = dataType(date)
+
+
+anyEntity.containsAttribute("attributeName")=dataType(string)
+
+
+
+<<:(Persona)(a, b, c):>>
+
+
+
+anyAttribute.startsWith("id") =>  ForeignKey(id(:Table));
+
+anyAttribute.endsWith("Id") =>  ForeignKey((:Table)id);
+
+
+anyAttribute("{{:TableName:}}Id") => TableName:id
+
+Persona("id{{:TableName:}}") => id;
+
+Contrato(idEmpleado) => Persona(id)
+
+ContratosFirmados(idEmpleado,idEmpresa) => Contrato(idEmpleado,idEmpresa)
+
+
+anyEntity[id{Table}] => Table.id
+
+
+
+
+
+
+ContratosFirmados[idEmpleado, idEmpresa] => Contrato[idEmpleado, idEmpresa]
+
+
+
+
+
+<<: Entity:Movement
+    Attributes {
+        id, description, date, amount, idCuenta:Cuenta
+    }
+:>>
+
+<<: Entity:Cuenta
+    Attributes {
+        id, name:myDataType, amountAvailable, movements(**)ovement
+    }
+
+:>>
+
+<<: Entity:Persona
+    Attributes {
+        a, b, c
+    }
+    ForeignKey {
+        (a) > Cuenta
+    }
+:>>
+
+
+anyAttribute.startsWith("date") = dataType(date)
+anyAttribute.equals("xyz") = dataType(date)
+anyAttribute.endsWith("xyz") = dataType(date)
+anyAttribute.contains("xyz") = dataType(date)
+
+anyTable.startsWith("Busi").id = dataType(long)
+
+
+Persona.name(200)
+Persona.address(300)
+
+Persona[ name, address ](300)
+
+Persona { id, name, address, idBusiness }
+Business {id, name, address }
+BusinessPersona { id, idBusiness, idPerson, dateAdded }
+Provider { id, idBusiness, idPersona }
+
+
+Persona.pk { id }
+Business.pk { id }
+BusinessPersona.pk { id }
+Provider.pk { id, idBusiness, idPersona }
+
+Provider.fk { idBusiness, idPersona } > BusinessPersona { idBusiness, idPerson }
+Persona.fk { idBusiness } > Business { id }
+
+Persona.name(200)
+
+{{[
+    id:int,
+    name:string,
+    description:string,
+    idSprint:int,
+    realTime:int,
+    estimatedTime:int,
+    remainingTime:int
+]}}
+
+{{/PK:id/}}
+
+{{/PK:[p, q, r]/}}
+
+{{/
+    FK:[a, b, c]
+    /
+    entities.Sprint:[a, b, c]
+/}}
+
+
+
+{{*MyType:INT}}
+
+
+
+{{:(IntType):}}
+
+
+{{[
+    id:{{:(IntType):}},
+    name:string,
+    description:string,
+    idSprint:{{:(IntType):}},
+    realTime:{{:(IntType):}},
+    estimatedTime:{{:(IntType):}},
+    remainingTime:{{:(IntType):}}
+]}}

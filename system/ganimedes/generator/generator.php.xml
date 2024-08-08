@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<snippets language="php" package="generator">
+    <snippet name="ViewHtml">
+        <![CDATA[
+            {{:(ObjectView)elements:}}
+        ]]>
+    </snippet>
+    <snippet name="ObjectView">
+        <![CDATA[
+        <div>
+            <h1>{{:title:}}</h1>
+            <p>{{:description:}}</p>
+            <a href="{{:url:}}">{{:url:}}</a>
+        </div>
+        ]]>
+    </snippet>
+    <snippet name="TestVariable">
+        <![CDATA[
+            before{{:accessModifier:}}
+
+            and before after
+
+            [[
+            welcome to the {{:jungle:}}
+
+                [[prueba {{:var1:}}
+
+                    [[prueba {{:var2:}}
+
+                    ]]
+
+                ]]
+
+                [[prueba {{:var3:}} {{:var4:}}
+
+                    [[prueba {{:var5:}} {{:var6:}}
+
+                        [[prueba {{:var7:}}
+
+                        ]]
+                    ]]
+
+                    [[prueba {{:var8:}}
+
+                    ]]
+
+                ]]
+            ]]
+
+            after
+         ]]>
+    </snippet>
+    <snippet name="ClassAttribute">
+        <![CDATA[
+            {{:accessModifier:}} ${{:name:}};
+         ]]>
+    </snippet>
+    <snippet name="MethodParameter">
+        <![CDATA[
+            [[{{:dataType:}}]] ${{:name:}},
+         ]]>
+    </snippet>
+    <snippet name="ClassMethod">
+        <![CDATA[
+            public function {{:methodName:}}( [[{{:(MethodParameter)parameters:}}]])
+            {
+                {{:methodBody:}}
+            }
+         ]]>
+    </snippet>
+
+
+    <snippet name="AssocArrayValue" extends="ClassMethod">
+        <![CDATA[
+            '{{:key:}}' => '{{:value:}}',
+
+        ]]>
+    </snippet>
+    <snippet name="TableReference" extends="ClassMethod">
+        <![CDATA[
+            $this->{{:name:}} = array(
+                {{:(AssocArrayValue)values:}}
+            );
+        ]]>
+    </snippet>
+    <snippet name="ClassGetter" extends="ClassMethod">
+        <![CDATA[
+            public function get{{:name:}}()
+            {
+                return $this->{{:name:}};
+            }
+        ]]>
+    </snippet>
+    <snippet name="ClassSetter" extends="ClassMethod">
+        <![CDATA[
+            public function set{{:name:}}( ${{:name:}} )
+            {
+                $this->{{:name:}} = ${{:name:}};
+            }
+         ]]>
+    </snippet>
+    <snippet name="ClassDef">
+        <![CDATA[
+            <?php
+
+            namespace {{:namespace:}};
+            class {{:name:}} [[extends {{:extensionClass:}} [[implements {{:implementClass:}} ]] ]] {
+
+                public function __construct()
+                {
+                    parent :: __construct();
+
+                    {{:(TableReference)tableColumnsMap:}}
+                }
+
+                {{:(ClassAttribute)attributes:}}
+
+                {{:(ClassGetter)attributes:}}
+
+                {{:(ClassSetter)attributes:}}
+
+                {{:(ClassMethod)methods:}}
+            }
+
+            ?>
+        ]]>
+    </snippet>
+
+    <snippet name="Persona">
+        <![CDATA[
+            {{:id:}}
+            {{:nombre:}}
+            {{:telefono:}}
+        ]]>
+    </snippet>
+
+
+    <snippet name="FacebookFriendAtFriendList">
+        <![CDATA[
+<div class="x6s0dn4 x1lq5wgf xgqcy7u x30kzoy x9jhf4c x1olyfxc x9f619 x78zum5 x1e56ztr xyamay9 x1pi30zi x1l90r2v x1swvt13 x1gefphp">
+   <div class="">
+      <a aria-hidden="true" class="x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x1q0g3np x87ps6o x1lku1pv x1rg5ohu x1a2a7pz xwzfr38 xktsk01 x1n2onr6 x1dmp6jm" href="https://www.facebook.com/ecofood.alimentacionsana" role="link" tabindex="-1">
+         <img height="80" width="80" alt="" class="x1lq5wgf xgqcy7u x30kzoy x9jhf4c x9f619 xl1xv1r" referrerpolicy="origin-when-cross-origin" src="{{:imgSrc:}}?stp={{:stp:}}&amp;_nc_cat={{:_nc_cat:}}&amp;ccb={{:ccb:}}&amp;_nc_sid={{:_nc_sid:}}&amp;_nc_eui2=AeHXn5EkQUO357EZscvSC6A2WT0gA-34c6hZPSAD7fhzqOzTn0wL0IUWnpvsFZGyIwd0IJ3xzfiEu90Bf4EBMBaH&amp;_nc_ohc=aZtkPrPDYp0Q7kNvgGiWmEw&amp;_nc_ht=scontent.feoh11-1.fna&amp;oh=00_AYCvYHRhwEFVHKTbAIM4xUvaZaE1ObudZm6ZN_QDktn96w&amp;oe=666D89FB"><span class="x1lq5wgf xgqcy7u x30kzoy x9jhf4c xl1xv1r x1ey2m1c xlg9a9y x9f619 xds687c x10l6tqk x17qophe x13vifvy"></span>
+         <div class="x1ey2m1c xds687c x17qophe xg01cxk x47corl x10l6tqk x13vifvy x1ebt8du x19991ni x1dhq9h x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m" role="none" data-visualcompletion="ignore"></div>
+      </a>
+   </div>
+   <div class="x1iyjqo2 x1pi30zi">
+      <div class=""><a class="x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g x1sur9pj xkrqix3" href="https://www.facebook.com/ecofood.alimentacionsana" role="link" tabindex="0"><span class="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x676frb x1lkfr7t x1lbecb7 x1s688f xzsf02u" dir="auto">{{:Persona.name:}}</span></a></div>
+      <div class="x1gslohp">
+         <span class="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xi81zsa" dir="auto">
+            <div class="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs">
+               <div dir="auto" style="text-align: start;"><a class="x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xi81zsa xo1l8bm" href="https://www.facebook.com/ecofood.alimentacionsana/friends_mutual" role="link" tabindex="0">1 amigo en común</a></div>
+            </div>
+         </span>
+      </div>
+   </div>
+   <div class="x9f619 x1n2onr6 x1ja2u2z x78zum5 x2lah0s x1qughib x6s0dn4 xozqiw3 x1q0g3np xykv574 xbmpl8g x4cne27 xifccgj">
+      <div class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xeuugli xsyo7zv x16hj40l x10b6aqq x1yrsyyn">
+         <div>
+            <div aria-label="Amigos" class="x1i10hfl x1ejq31n xd10rxx x1sy0etr x17r0tee x1ypdohk xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x16tdsg8 x1hl2dhg xggy1nq x87ps6o x1lku1pv x1a2a7pz x6s0dn4 xzolkzo x12go9s9 x1rnf11y xprq8jg x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x78zum5 xl56j7k xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x10w6t97 x1td3qas xjbqb8w" role="button" tabindex="0">
+               <i data-visualcompletion="css-img" class="x1b0d499 xep6ejk" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/gyDcrQbFpbZ.png?_nc_eui2=AeGbovyqdfeHQJkGIVOtEKKKpgQlYeNufVamBCVh4259VvHLaEoMuu29-gO1n22ndXQ0YEqu4rlq5SJTMM-szpTA&quot;); background-position: 0px -100px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block;"></i>
+               <div class="x1ey2m1c xds687c x17qophe xg01cxk x47corl x10l6tqk x13vifvy x1ebt8du x19991ni x1dhq9h xzolkzo x12go9s9 x1rnf11y xprq8jg" role="none" data-visualcompletion="ignore"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+        ]]>
+    </snippet>
+
+</snippets>
