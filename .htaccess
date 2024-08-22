@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+# Enable mod_rewrite
+RewriteEngine On
+
+
+# Ensure all requests are routed to WordPress, allowing it to handle routing and custom 404 pages
+
+# Redirect specific subdomains to index.php with appropriate URI
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(granjacob-com|neptuneql-com)(/.*)?$ /index.php?uri=$1$2 [L,QSA]
+
+# Handle top-level pages
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ /index.php?uri=$1 [L,QSA]
+
+# Pass all other requests through WordPress
+# Ensure WordPress can handle the requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+</IfModule>
