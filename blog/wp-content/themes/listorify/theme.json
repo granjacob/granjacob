@@ -1,0 +1,187 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "custom": true,
+      "customGradient": true,
+      "customDuotone": true,
+      "link": true,
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#0A49EB",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#FB6009",
+          "name": "Secondary"
+        },
+        {
+          "slug": "tertiary",
+          "color": "#6C92F0",
+          "name": "Tertiary"
+        },
+        {
+          "slug": "tertiary-light",
+          "color": "#4D7FFE",
+          "name": "Tertiary Light"
+        },
+        {
+          "slug": "accent",
+          "color": "#BACBF8",
+          "name": "Accent"
+        },
+        {
+          "slug": "accent-lite",
+          "color": "#E8EDFB",
+          "name": "Accent Lite"
+        },
+        {
+          "slug": "background-alt",
+          "color": "#0B0C0F",
+          "name": "Background Alternative"
+        },
+        {
+          "slug": "foreground",
+          "color": "#767682",
+          "name": "Foreground"
+        },
+        {
+          "slug": "background",
+          "color": "#ffffff",
+          "name": "Background"
+        },
+        {
+          "name": "Heading Color",
+          "color": "#13161D",
+          "slug": "heading-color"
+        },
+        {
+          "name": "Sub Heading Color",
+          "color": "#222529",
+          "slug": "sub-heading-color"
+        },
+        {
+          "name": "Foreground Alternative",
+          "color": "#FEFEFE",
+          "slug": "foregound-alt"
+        },
+        {
+          "name": "Extra Category Color",
+          "color": "#DE0741",
+          "slug": "extra-category-color"
+        },
+        {
+          "name": "Border Color",
+          "color": "#D6E0F9",
+          "slug": "border-color"
+        },
+        {
+          "name": "Post Meta Color",
+          "color": "#767676",
+          "slug": "post-meta-color"
+        },
+        {
+          "color": "#ffffff00",
+          "name": "Transparent",
+          "slug": "transparent"
+        }
+      ],
+      "gradients": [
+        {
+          "gradient": "radial-gradient(91.74% 91.74% at 53.6% 100%, #1051F9 0%, #05102C 100%)",
+          "name": "First Primary Gradient",
+          "slug": "first-primary-gradient"
+        }
+      ]
+    },
+    "typography": {
+      "dropCap": true,
+      "fontFamilies": [
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Allura",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "src": ["file:./assets/fonts/allura/Allura-Regular.woff2"]
+            }
+          ],
+          "fontFamily": "\"Allura\", sans-serif",
+          "name": "Allura",
+          "slug": "allura"
+        },
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Jost",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 400 500 600 700 900",
+              "src": ["file:./assets/fonts/jost/Jost-VariableFont_wght.ttf"]
+            },
+            {
+              "fontFamily": "Jost",
+              "fontStretch": "normal",
+              "fontStyle": "italic",
+              "fontWeight": "300 400 500 600 700 900",
+              "src": ["file:./assets/fonts/jost/Jost-Italic-VariableFont_wght.ttf"]
+            }
+          ],
+          "fontFamily": "\"Jost\", sans-serif",
+          "name": "Jost",
+          "slug": "jost"
+        },
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Public Sans",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 400 500 600 700 900",
+              "src": ["file:./assets/fonts/public_sans/PublicSans-VariableFont_wght.ttf"]
+            },
+            {
+              "fontFamily": "Public Sans",
+              "fontStretch": "normal",
+              "fontStyle": "italic",
+              "fontWeight": "300 400 500 600 700 900",
+              "src": ["file:./assets/fonts/public_sans/PublicSans-Italic-VariableFont_wght.ttf"]
+            }
+          ],
+          "fontFamily": "\"Public Sans\", sans-serif",
+          "name": "Public Sans",
+          "slug": "public-sans"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--jost)",
+      "fontSize": "var(--wp-preset--font-size--small)"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--jost)",
+          "fontStyle": "normal",
+          "fontWeight": "var(--wp--preset--font-weight--regular)",
+          "lineHeight": "var(--wp--preset--line-height--xxSmall)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--heading-color)",
+          "background": "var(--wp--preset--color--transparent)"
+        }
+      }
+    },
+    "color": {
+      "background": "var(--wp--preset--color--background)",
+      "text": "var(--wp--preset--color--foreground)"
+    }
+  }
+}
